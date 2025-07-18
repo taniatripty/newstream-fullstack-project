@@ -25,6 +25,7 @@ import SubscriptionPage from "../pages/SubscriptionPage/SubscriptionPage";
 import Payment from "../pages/Payment/Payment";
 import UpdateArticle from "../pages/UpdateArticle/UpdateArticle";
 import AboutUs from "../components/AboutUs/AboutUs";
+import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 
 
 export const router = createBrowserRouter([
@@ -50,11 +51,15 @@ export const router = createBrowserRouter([
     },
     {
       path:'/myarticle',
-      Component:MyArticles
+      element:<PrivateRoute>
+        <MyArticles></MyArticles>
+      </PrivateRoute>
     },
     {
       path:'/article/:id',
-      Component:UpdateArticle
+     element:<PrivateRoute>
+      <UpdateArticle></UpdateArticle>
+     </PrivateRoute>
 
     },
     {
@@ -71,15 +76,21 @@ export const router = createBrowserRouter([
     },
     {
       path:'/allarticle',
-      Component:AllArticle
+      element:<PrivateRoute>
+        <AllArticle></AllArticle>
+      </PrivateRoute>
     },
     {
         path:'articles/:id',
-        Component:ArticleDetails
+        element:<PrivateRoute>
+          <ArticleDetails></ArticleDetails>
+        </PrivateRoute>
     },
     {
       path:'/premium',
-      Component:PremiumArticle
+     element:<PrivateRoute>
+      <PremiumArticle></PremiumArticle>
+     </PrivateRoute>
     },
    
     {
@@ -101,6 +112,10 @@ export const router = createBrowserRouter([
     <Dashboard></Dashboard>
    </PrivateRoute>,
    children:[
+    {
+      index:true,
+      Component:DashboardHome
+    },
    {
     path:'alluser',
    element:<AdminRoute>
