@@ -15,8 +15,8 @@ const tagOptions = [
   { value: "education", label: "Education" },
   { value: "technology", label: "Technology" },
   { value: "health", label: "Health" },
-   { value: "weather", label: "Weather" },
-    { value: "climate chnage", label: "Climate Change" },
+  { value: "weather", label: "Weather" },
+  { value: "climate change", label: "Climate Change" },
 ];
 
 const AddArticle = () => {
@@ -43,17 +43,15 @@ const AddArticle = () => {
   }, [axiosSecure]);
 
   // ✅ Upload image to imgbb
-  const handleimageupload = async (e) => {
+  const handleImageUpload = async (e) => {
     const image = e.target.files[0];
-
     const formData = new FormData();
     formData.append("image", image);
 
-    const imagUploadUrl = `https://api.imgbb.com/1/upload?key=${
+    const imageUploadUrl = `https://api.imgbb.com/1/upload?key=${
       import.meta.env.VITE_IMAGE_API
     }`;
-    const res = await axios.post(imagUploadUrl, formData);
-
+    const res = await axios.post(imageUploadUrl, formData);
     setProfilePic(res.data.data.url);
   };
 
@@ -77,7 +75,7 @@ const AddArticle = () => {
     axiosSecure
       .post("/articles", article)
       .then((res) => {
-        if (res.data.insertedId) {
+        if (res.data.insertedId || res.data.result?.insertedId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -90,7 +88,14 @@ const AddArticle = () => {
         }
       })
       .catch((error) => {
-        console.error("Article submission error:", error);
+        const message =
+          error.response?.data?.message ||
+          "An error occurred while submitting the article.";
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: message,
+        });
       });
   };
 
@@ -112,7 +117,7 @@ const AddArticle = () => {
       {/* Image Upload */}
       <input
         {...register("image")}
-        onChange={handleimageupload}
+        onChange={handleImageUpload}
         type="file"
         className="w-full p-2 border border-gray-300 rounded"
       />

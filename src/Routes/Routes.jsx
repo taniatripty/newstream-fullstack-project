@@ -24,6 +24,7 @@ import MyArticles from "../pages/MyArticle/MyArticles";
 import SubscriptionPage from "../pages/SubscriptionPage/SubscriptionPage";
 import Payment from "../pages/Payment/Payment";
 import UpdateArticle from "../pages/UpdateArticle/UpdateArticle";
+import AboutUs from "../components/AboutUs/AboutUs";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
     {
         index:true,
         Component:Home
+    },
+    {
+      path:'/aboutus',
+      Component:AboutUs
     },
     {
       path:'/addarticle',

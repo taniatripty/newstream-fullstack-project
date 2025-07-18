@@ -23,6 +23,15 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink to='aboutus'
+          className={({ isActive }) =>
+            isActive ? "text-indigo-700 underline" : ""
+          }
+        >
+         About Us
+        </NavLink>
+      </li>
+      <li>
         <NavLink
           to="/addarticle"
           className={({ isActive }) =>
