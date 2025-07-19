@@ -24,7 +24,7 @@ const UserStatistics = () => {
       <div className="bg-white shadow rounded-lg p-6 border-t-4 border-blue-600">
         <p className="text-xl font-semibold mb-2">Total Users</p>
         <h2 className="text-4xl font-bold text-blue-600">
-          <CountUp end={total} duration={20} />
+          <CountUp end={total} duration={8} />
         </h2>
       </div>
 
@@ -32,7 +32,7 @@ const UserStatistics = () => {
       <div className="bg-white shadow rounded-lg p-6 border-t-4 border-gray-500">
         <p className="text-xl font-semibold mb-2">Normal Users</p>
         <h2 className="text-4xl font-bold text-gray-600">
-          <CountUp end={normal} duration={30} />
+          <CountUp end={normal} duration={8} />
         </h2>
       </div>
 
@@ -40,7 +40,7 @@ const UserStatistics = () => {
       <div className="bg-white shadow rounded-lg p-6 border-t-4 border-yellow-500">
         <p className="text-xl font-semibold mb-2">Premium Users</p>
         <h2 className="text-4xl font-bold text-yellow-600">
-          <CountUp end={premium} duration={30} />
+          <CountUp end={premium} duration={8} />
         </h2>
       </div>
     </div>

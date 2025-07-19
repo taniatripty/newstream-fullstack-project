@@ -8,7 +8,7 @@ const SubscriptionPromptModal = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
-    }, 10000); // 10 seconds
+    }, 20000); 
 
     return () => clearTimeout(timer);
   }, []);

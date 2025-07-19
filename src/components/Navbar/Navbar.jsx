@@ -1,13 +1,23 @@
 import { Link, NavLink } from "react-router";
 import useAuth from "../../hooks/useAuth/useAuth";
 import useUserRole from "../../hooks/useUserRole/UseUserRole";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { role } = useUserRole();
   const handleLogout = () => {
     logOut()
-      .then(() => alert("Logout successful"))
+      .then(() =>{
+Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "logOut successful",
+  showConfirmButton: false,
+  timer: 1500
+});
+      })
+         
       .catch((error) => console.error(error));
   };
 
@@ -50,7 +60,10 @@ const Navbar = () => {
           All Articles
         </NavLink>
       </li>
-      <li>
+     {
+      user && role=='premium user'&&(
+        <>
+         <li>
         <NavLink to='/premium'
           className={({ isActive }) =>
             isActive ? "text-indigo-700 underline" : ""
@@ -59,6 +72,9 @@ const Navbar = () => {
           Premium Articles
         </NavLink>
       </li>
+        </>
+      )
+     }
       <li>
         <NavLink to='/myarticle'
           className={({ isActive }) =>
