@@ -211,15 +211,7 @@ const Dashboard = () => {
               All Articles
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/dashboard/make-admin"
-              className="flex items-center text-gray-700 hover:text-lime-500"
-            >
-              <FaUserShield className="inline-block mr-2" />
-              Make Admin
-            </NavLink>
-          </li>
+         
         </ul>
       </div>
     </div>
