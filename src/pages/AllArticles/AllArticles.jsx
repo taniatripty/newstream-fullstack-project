@@ -17,7 +17,7 @@ const AllArticles = () => {
   const [declineModalOpen, setDeclineModalOpen] = useState(false);
   const [selectedArticleId, setSelectedArticleId] = useState(null);
 
-  // ✅ Fetch with pagination
+  
   const { data, isLoading } = useQuery({
     queryKey: ["all-articles", page],
     queryFn: async () => {
@@ -31,13 +31,13 @@ const AllArticles = () => {
   const totalArticles = data?.total || 0;
   const totalPages = Math.ceil(totalArticles / ITEMS_PER_PAGE);
 
-  // ✅ Approve article
+  //  Approve article
   const approveMutation = useMutation({
     mutationFn: async (id) => await axiosSecure.patch(`/articles/approve/${id}`),
     onSuccess: () => queryClient.invalidateQueries(["all-articles"]),
   });
 
-  // ✅ Decline article
+  //  Decline article
   const declineMutation = useMutation({
     mutationFn: async ({ id, reason }) =>
       await axiosSecure.patch(`/articles/decline/${id}`, { reason }),
@@ -49,7 +49,7 @@ const AllArticles = () => {
     },
   });
 
-  // ✅ Make article premium
+  //  Make article premium
   const premiumMutation = useMutation({
     mutationFn: async (id) => await axiosSecure.patch(`/articles/premium/${id}`),
     onSuccess: () => {
@@ -58,7 +58,7 @@ const AllArticles = () => {
     },
   });
 
-  // ✅ Delete article
+  //  Delete article
   const deleteMutation = useMutation({
     mutationFn: async (id) => await axiosSecure.delete(`/articles/${id}`),
     onSuccess: () => {
@@ -188,7 +188,7 @@ const AllArticles = () => {
         </tbody>
       </table>
 
-      {/* ✅ Pagination Controls */}
+      {/*  Pagination Controls */}
       <div className="mt-6 flex justify-center gap-2">
         <button
           onClick={() => setPage((old) => Math.max(old - 1, 1))}
@@ -215,7 +215,7 @@ const AllArticles = () => {
         </button>
       </div>
 
-      {/* ✅ Decline Modal */}
+      {/*  Decline Modal */}
       {declineModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white rounded p-6 w-[90%] max-w-md shadow-lg">

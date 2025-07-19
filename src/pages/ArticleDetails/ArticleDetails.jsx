@@ -21,7 +21,7 @@ const ArticleDetails = () => {
     },
   });
 
-  // ✅ Increase view count once after article is loaded
+  
   useEffect(() => {
   if (article?._id) {
     axiosSecure.patch(`/article/${article._id}/view`).catch((err) => {
@@ -45,7 +45,7 @@ const ArticleDetails = () => {
       </div>
     );
 
-  // ⛔ Redirect if article is premium and user not subscribed
+
   if (article.isPremium && !isSubscribed) {
     Swal.fire({
       icon: "info",
