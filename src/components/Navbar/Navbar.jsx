@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth/useAuth";
 import useUserRole from "../../hooks/useUserRole/UseUserRole";
+import Logo from "../Logo/Logo";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -158,7 +159,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">newspaper</a>
+          <Logo></Logo>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
