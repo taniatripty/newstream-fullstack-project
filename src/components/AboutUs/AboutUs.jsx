@@ -80,7 +80,7 @@ export default function DistrictMap() {
         </p>
         <p className="mb-8 text-gray-600">
           {" "}
-          Our office is located at: <br />
+          Our main office is located at: <br />
           123 Main Street, Dhaka, Bangladesh
         </p>
       </div>

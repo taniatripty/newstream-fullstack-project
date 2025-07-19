@@ -166,7 +166,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user && user.displayName}
           {user && (
-            <img className="w-12 rounded-4xl mr-4" src={user.photoURL} alt="" />
+            <img className="w-10 h-10  rounded-full mr-4" src={user.photoURL} alt="" />
           )}
           {user ? (
             <button onClick={handleLogout} className="btn btn-sm">

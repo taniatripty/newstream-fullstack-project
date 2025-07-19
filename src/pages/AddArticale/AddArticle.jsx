@@ -16,6 +16,9 @@ const tagOptions = [
   { value: "technology", label: "Technology" },
   { value: "health", label: "Health" },
   { value: "weather", label: "Weather" },
+   { value: "space", label: "Space" },
+   { value: "economy", label: "Economy" },
+
   { value: "climate change", label: "Climate Change" },
 ];
 
