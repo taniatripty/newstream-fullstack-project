@@ -41,7 +41,9 @@ Swal.fire({
          About Us
         </NavLink>
       </li>
-      <li>
+      {
+        user && <>
+         <li>
         <NavLink
           to="/addarticle"
           className={({ isActive }) =>
@@ -60,6 +62,29 @@ Swal.fire({
           All Articles
         </NavLink>
       </li>
+      
+      <li>
+        <NavLink to='/myarticle'
+          className={({ isActive }) =>
+            isActive ? "text-indigo-700 underline" : ""
+          }
+        >
+         My Articles
+        </NavLink>
+      </li>
+       <li>
+        <NavLink to='/subscription'
+          className={({ isActive }) =>
+            isActive ? "text-indigo-700 underline" : ""
+          }
+        >
+          Subscription
+        </NavLink>
+      </li>
+        </>
+      }
+     
+      
      {
       user && role=='premium user'&&(
         <>
@@ -75,15 +100,6 @@ Swal.fire({
         </>
       )
      }
-      <li>
-        <NavLink to='/myarticle'
-          className={({ isActive }) =>
-            isActive ? "text-indigo-700 underline" : ""
-          }
-        >
-         My Articles
-        </NavLink>
-      </li>
       {user && role == "admin" && (
         <>
           <li>
@@ -97,15 +113,7 @@ Swal.fire({
           </li>
         </>
       )}
-      <li>
-        <NavLink to='/subscription'
-          className={({ isActive }) =>
-            isActive ? "text-indigo-700 underline" : ""
-          }
-        >
-          Subscription
-        </NavLink>
-      </li>
+     
     </>
   );
   return (
