@@ -47,7 +47,7 @@ const TrendingSlider = () => {
               <div className="p-4">
                 <h3 className="text-lg font-bold">{article.title}</h3>
                 <p className="text-sm text-gray-500 mt-1">
-                  Views: {article.views || 0}
+                  points: {article.points|| 0}
                 </p>
                 <Link
                   to={`/articles/${article._id}`}

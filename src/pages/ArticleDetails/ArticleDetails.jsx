@@ -188,7 +188,7 @@ const ArticleDetails = () => {
       </div>
 
       <p className="text-sm text-gray-500 mt-4">
-  👁️ Views: {article.views || 0} | ⭐ Points: {article.points || 0}
+  ⭐ Points: {article.points || 0}
 </p>
     </div>
   );
