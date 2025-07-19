@@ -201,15 +201,7 @@ const Dashboard = () => {
               Add Publishers
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/dashboard/allpublisher"
-              className="flex items-center text-gray-700 hover:text-lime-500"
-            >
-              <FaUserTimes className="inline-block mr-2" />
-              All Publishers
-            </NavLink>
-          </li>
+         
           <li>
             <NavLink
               to="/dashboard/allarticles"

@@ -14,7 +14,7 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink
+        <NavLink to='/'
           className={({ isActive }) =>
             isActive ? "text-indigo-700 underline" : ""
           }
