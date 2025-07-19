@@ -86,6 +86,16 @@ const Navbar = () => {
               Subscription
             </NavLink>
           </li>
+           <li>
+            <NavLink
+              to="/myprofile"
+              className={({ isActive }) =>
+                isActive ? "text-indigo-700 underline" : ""
+              }
+            >
+              My Profile
+            </NavLink>
+          </li>
         </>
       )}
 

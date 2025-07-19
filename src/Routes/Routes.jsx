@@ -26,6 +26,7 @@ import Payment from "../pages/Payment/Payment";
 import UpdateArticle from "../pages/UpdateArticle/UpdateArticle";
 import AboutUs from "../components/AboutUs/AboutUs";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
+import Profile from "../pages/Profile/Profile";
 
 
 export const router = createBrowserRouter([
@@ -66,6 +67,13 @@ export const router = createBrowserRouter([
       path:'/payment',
       element:<PrivateRoute>
         <Payment></Payment>
+      </PrivateRoute>
+    },
+    {
+
+      path:'/myprofile',
+      element:<PrivateRoute>
+        <Profile></Profile>
       </PrivateRoute>
     },
     {
