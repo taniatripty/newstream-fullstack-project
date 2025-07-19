@@ -28,7 +28,7 @@ const ArticlePieChart = () => {
   }, [axiosSecure]);
 
   return (
-    <div className="max-w-xl mx-auto bg-white p-4 rounded shadow">
+    <div className="max-w-4xl mb-6 mx-auto bg-white p-4 rounded shadow">
       <h2 className="text-xl font-semibold mb-4">Article Distribution by Publisher</h2>
       <Chart
         chartType="PieChart"
