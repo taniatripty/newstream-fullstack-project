@@ -5,6 +5,7 @@ import UserStatistics from '../UserStatistics/UserStatistics';
 import PlansSection from '../PlansSection/PlansSection';
 import AllPublisher from '../../pages/Dashboard/AllPublisher/AllPublisher';
 import SubscriptionPromptModal from '../SubscriptionPromptModal/SubscriptionPromptModal';
+import FactsAndStats from '../FactsAndStats/FactsAndStats';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <AllPublisher></AllPublisher>
             <PlansSection></PlansSection>
          <TrendingTicker></TrendingTicker>
+         <FactsAndStats></FactsAndStats>
         </div>
     );
 };
