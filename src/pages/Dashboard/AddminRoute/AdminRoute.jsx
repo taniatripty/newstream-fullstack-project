@@ -1,6 +1,6 @@
 
 
-import { useLocation } from "react-router";
+
 import useAuth from "../../../hooks/useAuth/useAuth";
 import useUserRole from "../../../hooks/useUserRole/UseUserRole";
 import Forbidden from "../../../components/Error/Forbidden";
@@ -8,7 +8,7 @@ import Forbidden from "../../../components/Error/Forbidden";
 const AdminRoute = ({ children }) => {
   const { user, loading: authLoading } = useAuth();
   const { role, loading: roleLoading } = useUserRole();
-  const location = useLocation();
+  
 
   if (authLoading || roleLoading) {
     return (
