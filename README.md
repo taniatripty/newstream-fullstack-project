@@ -59,5 +59,8 @@ npm install react react-dom react-router-dom @tanstack/react-query tailwindcss d
 
 ```
 ### **Backend**
+```bash
 npm install express cors stripe mongodb dotenv
+
+```
 
