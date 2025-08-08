@@ -1,12 +1,63 @@
-# React + Vite
+# 📰 Full-Stack Newspaper Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern full-stack newspaper platform where users can read, publish, and manage articles.  
+Includes **premium subscription** support with Stripe payments, role-based access control, and an admin dashboard.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
+[Visit the Live Site](https://newspaper-auth-22b11.web.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+## 🚀 Features
+
+### 👤 User Features
+- Browse and read articles by category or tags.
+- Search and filter by **title, publisher, or tags**.
+- View premium articles (only for subscribed users).
+- Stripe payment integration for premium subscription.
+- Role automatically updates to **Premium User** on payment.
+- Premium badge displayed on profile.
+
+### 🛠 Admin Features
+- Approve, decline, or delete articles.
+- Mark articles as **Premium**.
+- Manage publishers and tags.
+- View all users and update roles.
+
+### 🔐 Authentication & Authorization
+- Secure JWT-based authentication.
+- Role-based route protection (User, Admin, Premium).
+
+---
+
+## 🏗 Tech Stack
+
+### **Frontend**
+- React.js + Vite
+- Tailwind CSS + DaisyUI
+- React Router
+- TanStack Query (React Query)
+- Stripe.js + @stripe/react-stripe-js
+
+### **Backend**
+- Node.js + Express.js
+- MongoDB (Native Driver)
+- Stripe API
+- JWT for authentication
+
+---
+
+## 📦 Dependencies
+
+### **Frontend**
+```bash
+npm install react react-dom react-router-dom @tanstack/react-query tailwindcss daisyui @stripe/react-stripe-js @stripe/stripe-js axios sweetalert2
+
+```
+### **Backend**
+npm install express cors stripe mongodb dotenv
+
