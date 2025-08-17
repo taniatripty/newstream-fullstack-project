@@ -5,6 +5,7 @@ import useAxiosSecure from "../useAuth/useAxiosSecure/useAxiosSecure";
 
 const useUserRole = () => {
   const { user, loading: authLoading } = useAuth();
+  console.log(user)
   const axiosSecure = useAxiosSecure();
 
   const {

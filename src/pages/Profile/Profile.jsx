@@ -40,7 +40,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <form onSubmit={handleUpdate} className="mt-6 space-y-4">
+      <form onSubmit={handleUpdate} className="mt-6 space-y-3">
         <div>
           <label className="block font-medium">Display Name</label>
           <input

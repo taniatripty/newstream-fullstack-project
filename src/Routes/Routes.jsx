@@ -27,6 +27,8 @@ import UpdateArticle from "../pages/UpdateArticle/UpdateArticle";
 import AboutUs from "../components/AboutUs/AboutUs";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import Profile from "../pages/Profile/Profile";
+import SubscriptionPlanPage from "../components/SubscriptionPlanPage/SubscriptionPlanPage";
+import TermsAndConditions from "../components/TermsAndConditions/TermsAndConditions";
 
 
 export const router = createBrowserRouter([
@@ -42,6 +44,14 @@ export const router = createBrowserRouter([
     {
       path:'/aboutus',
       Component:AboutUs
+    },
+    {
+      path:'/subscriptionplan',
+      Component:SubscriptionPlanPage
+    },
+    {
+      path:'/terms',
+      Component:TermsAndConditions
     },
     {
       path:'/addarticle',
@@ -84,15 +94,15 @@ export const router = createBrowserRouter([
     },
     {
       path:'/allarticle',
-      element:<PrivateRoute>
+      element:
         <AllArticle></AllArticle>
-      </PrivateRoute>
+     
     },
     {
         path:'articles/:id',
-        element:<PrivateRoute>
+        element:
           <ArticleDetails></ArticleDetails>
-        </PrivateRoute>
+      
     },
     {
       path:'/premium',

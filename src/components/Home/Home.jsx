@@ -6,17 +6,25 @@ import PlansSection from '../PlansSection/PlansSection';
 import AllPublisher from '../../pages/Dashboard/AllPublisher/AllPublisher';
 import SubscriptionPromptModal from '../SubscriptionPromptModal/SubscriptionPromptModal';
 import FactsAndStats from '../FactsAndStats/FactsAndStats';
+import LatestNews from '../LatestNews/LatestNews';
+import MostReadArticles from '../MostReadArticles/MostReadArticles';
+import NewsletterSignup from '../NewsletterSignup/NewsletterSignup';
+import ReaderTestimonials from '../ReaderTestimonials/ReaderTestimonials';
 
 
 const Home = () => {
     return (
         <div>
             <TrendingSlider></TrendingSlider>
-            <SubscriptionPromptModal>s</SubscriptionPromptModal>
+            <LatestNews></LatestNews>
+            <MostReadArticles></MostReadArticles>
+            <SubscriptionPromptModal></SubscriptionPromptModal>
             <UserStatistics></UserStatistics>
             <AllPublisher></AllPublisher>
             <PlansSection></PlansSection>
          <TrendingTicker></TrendingTicker>
+         <ReaderTestimonials></ReaderTestimonials>
+         <NewsletterSignup></NewsletterSignup>
          <FactsAndStats></FactsAndStats>
         </div>
     );

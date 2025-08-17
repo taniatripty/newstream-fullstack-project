@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -19,10 +17,10 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const axiosInstance = useAxios();
-
   const { Googlelogin, createuser, upadeteuser } = useAuth();
   const from = location.state?.from || "/";
 
+  // Form Submit
   const onSubmit = (data) => {
     createuser(data.email, data.password)
       .then(async (result) => {
@@ -31,16 +29,24 @@ const Register = () => {
           photo: profilepic,
           email: data.email,
           role: "user",
+          address: "Dhaka",
+          phone: null,
           created_at: new Date().toISOString(),
           last_log_in: new Date().toISOString(),
           premiumTaken: null,
         };
 
-        const userRes = await axiosInstance.post("/users", userInfo);
-        if (userRes.data.inserted !== false) {
-          console.log(" New user created in DB");
-        } else {
-          console.log(" User already exists in DB");
+        try {
+          const userRes = await axiosInstance.post("/users", userInfo);
+          if (userRes.data.inserted !== false) {
+            console.log("New user created in DB");
+          } else {
+            console.log("User already exists in DB");
+          }
+        } catch (err) {
+          console.error("DB error:", err);
+          Swal.fire("Error", "Failed to save user in database", "error");
+          return;
         }
 
         const userProfile = {
@@ -55,24 +61,43 @@ const Register = () => {
           })
           .catch((error) => {
             console.error("Error updating profile:", error);
+            Swal.fire(
+              "Error",
+              error.message || "Failed to update user profile",
+              "error"
+            );
           });
       })
       .catch((error) => {
         console.error("Error creating user:", error);
-        Swal.fire("Error", "Failed to register user", "error");
+        Swal.fire(
+          "Error",
+          error.message || "Failed to register user. Try again.",
+          "error"
+        );
       });
   };
 
+  // Image Upload
   const handleimageupload = async (e) => {
     const image = e.target.files[0];
     const formData = new FormData();
     formData.append("image", image);
 
-    const uploadUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMAGE_API}`;
-    const res = await axios.post(uploadUrl, formData);
-    setProfilePic(res.data.data.url);
+    const uploadUrl = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_IMAGE_API
+    }`;
+
+    try {
+      const res = await axios.post(uploadUrl, formData);
+      setProfilePic(res.data.data.url);
+    } catch (error) {
+      console.error("Image upload error:", error);
+      Swal.fire("Error", "Failed to upload profile image. Try again.", "error");
+    }
   };
 
+  // Google Login
   const handleGoogleLogin = () => {
     Googlelogin()
       .then(async (result) => {
@@ -91,23 +116,35 @@ const Register = () => {
           photo: loggedUser.photoURL,
           email: loggedUser.email,
           role: "user",
+          address: "Dhaka",
+          phone: null,
           created_at: new Date().toISOString(),
           last_log_in: new Date().toISOString(),
           premiumTaken: null,
         };
 
-        const userRes = await axiosInstance.post("/users", userInfo);
-        if (userRes.data.inserted !== false) {
-          console.log(" New social user created in DB");
-        } else {
-          console.log(" Social user already exists in DB");
+        try {
+          const userRes = await axiosInstance.post("/users", userInfo);
+          if (userRes.data.inserted !== false) {
+            console.log("New social user created in DB");
+          } else {
+            console.log("Social user already exists in DB");
+          }
+        } catch (err) {
+          console.error("DB error:", err);
+          Swal.fire("Error", "Failed to save social user in database", "error");
+          return;
         }
 
         navigate(from);
       })
       .catch((error) => {
         console.error("Google login error:", error);
-        Swal.fire("Error", "Google login failed", "error");
+        Swal.fire(
+          "Error",
+          error.message || "Google login failed. Try again.",
+          "error"
+        );
       });
   };
 
@@ -121,6 +158,7 @@ const Register = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
+            {/* Name */}
             <div>
               <label className="block mb-2 text-sm">Name</label>
               <input
@@ -132,6 +170,7 @@ const Register = () => {
               {errors.name && <p className="text-red-600">Name is required</p>}
             </div>
 
+            {/* Image */}
             <div>
               <label className="block mb-2 text-sm">Select Image:</label>
               <input
@@ -141,6 +180,7 @@ const Register = () => {
               />
             </div>
 
+            {/* Email */}
             <div>
               <label className="block mb-2 text-sm">Email address</label>
               <input
@@ -149,9 +189,12 @@ const Register = () => {
                 placeholder="Enter Your Email Here"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900"
               />
-              {errors.email && <p className="text-red-600">Email is required</p>}
+              {errors.email && (
+                <p className="text-red-600">Email is required</p>
+              )}
             </div>
 
+            {/* Password */}
             <div>
               <label className="block mb-2 text-sm">Password</label>
               <input
@@ -178,6 +221,7 @@ const Register = () => {
             </div>
           </div>
 
+          {/* Submit */}
           <div>
             <button
               type="submit"
@@ -188,12 +232,7 @@ const Register = () => {
           </div>
         </form>
 
-        <div className="space-y-1 mt-2">
-          <button className="text-xs hover:underline hover:text-lime-500 text-gray-400">
-            Forgot password?
-          </button>
-        </div>
-
+        {/* Google Login */}
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px bg-gray-300"></div>
           <p className="px-3 text-sm text-gray-400">Or continue with</p>

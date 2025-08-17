@@ -43,8 +43,8 @@ const SubscriptionPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-6xl w-full text-white">
           {/* Left Banner Content */}
           <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              ✨ Go Premium. Read Without Limits!
+            <h1 className="text-4xl  md:text-5xl font-bold mb-4">
+              ✨ <span className="">Go Premium. Read Without Limits!</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-6">
               Unlock exclusive articles, remove distractions, and gain early access to premium content.
@@ -68,7 +68,7 @@ const SubscriptionPage = () => {
 
           {/* Subscription Form (conditionally rendered) */}
           {showForm && (
-            <div className="bg-white text-gray-800 rounded-2xl p-8 shadow-lg w-full">
+            <div className="bg-white text-gray-500 rounded-2xl p-8 shadow-lg w-full">
               <h2 className="text-2xl font-semibold mb-6 text-center">
                 Choose Your Subscription Plan
               </h2>
@@ -80,7 +80,7 @@ const SubscriptionPage = () => {
                   onChange={handleDurationChange}
                   className="w-full p-2 border border-gray-300 rounded-lg"
                 >
-                  <option value="1">1 Minute (For Demo/Assignment)</option>
+                  <option value="1">1 Minute </option>
                   <option value="5">5 Days</option>
                   <option value="10">10 Days</option>
                 </select>

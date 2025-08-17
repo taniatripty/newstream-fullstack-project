@@ -25,7 +25,7 @@ const AllPublisher = () => {
       <h2 className="text-2xl font-bold mb-6">All Publishers</h2>
       <div className="overflow-x-auto rounded shadow">
         <table className="min-w-full table-auto bg-white">
-          <thead className="bg-lime-100 text-left">
+          <thead className="bg-blue-100 text-left">
             <tr>
               <th className="px-4 py-2">#</th>
               <th className="px-4 py-2">Logo</th>

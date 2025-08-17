@@ -1,3 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Source+Sans+Pro:wght@400;500;600;700&display=swap');
+
+
+
 @import "tailwindcss";
+@tailwind utilities;
 @plugin "daisyui";
 
+
+:root {
+  --primary-bg: #1E293B;     /* Navbar & footer */
+  --primary-accent: #2563EB; /* Buttons, links */
+  --heading-text: #0F172A;
+  --body-text: #334155;
+  --secondary-text: #64748B;
+  --white: #FFFFFF;
+
+  /* Font Sizes */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  color: var(--body-text);
+  background-color: #FFFFFF;
+}
+
+h1, h2, h3 {
+  font-family: 'Lora', serif;
+  color: var(--heading-text);
+}
