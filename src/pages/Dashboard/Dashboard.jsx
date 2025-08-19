@@ -4,6 +4,7 @@ import { Link, NavLink, Outlet } from "react-router";
 import useUserRole from "../../hooks/useUserRole/UseUserRole";
 import { FaHome, FaUsers, FaFileAlt, FaUserCircle, FaUserShield, FaUserTie, FaUserTimes } from "react-icons/fa";
 import Logo from "../../components/Logo/Logo";
+import { IoNotificationsCircle } from "react-icons/io5";
 
 const Dashboard = () => {
   const { role, loading } = useUserRole();
@@ -58,7 +59,17 @@ const Dashboard = () => {
               className="flex items-center text-gray-700 hover:text-lime-500"
             >
               <FaHome className="inline-block mr-2" />
-              Dashboard Home
+              Dashboard
+            </NavLink>
+          </li>
+           <li>
+            <NavLink
+              to="/dashboard/notification"
+              end
+              className="flex items-center text-gray-700 hover:text-lime-500"
+            >
+              <IoNotificationsCircle size={16} className="inline-block mr-2" />
+              notification
             </NavLink>
           </li>
           <li>

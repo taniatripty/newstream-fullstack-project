@@ -2,7 +2,7 @@ import axios from "axios";
 
 const useAxiosSecure = () => {
   const axiosSecure = axios.create({
-    baseURL: `https://newspaper-fullstack-project-server.vercel.app`,
+    baseURL: `http://localhost:5000`,
   });
   return axiosSecure;
 };

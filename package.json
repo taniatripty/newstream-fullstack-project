@@ -33,6 +33,7 @@
     "react-simple-typewriter": "^5.0.1",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^4.8.1",
     "sweetalert2": "^11.22.2",
     "tailwindcss": "^4.1.11"
   },

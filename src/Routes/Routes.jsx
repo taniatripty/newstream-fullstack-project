@@ -29,6 +29,7 @@ import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import Profile from "../pages/Profile/Profile";
 import SubscriptionPlanPage from "../components/SubscriptionPlanPage/SubscriptionPlanPage";
 import TermsAndConditions from "../components/TermsAndConditions/TermsAndConditions";
+import AdminNotifications from "../pages/Dashboard/AdminNotifications/AdminNotifications";
 
 
 export const router = createBrowserRouter([
@@ -133,6 +134,12 @@ export const router = createBrowserRouter([
     {
       index:true,
       Component:DashboardHome
+    },
+    {
+      path:'notification',
+      element:<AdminRoute>
+        <AdminNotifications></AdminNotifications>
+      </AdminRoute>
     },
    {
     path:'alluser',

@@ -1,10 +1,8 @@
-
 import { useQuery } from "@tanstack/react-query";
+import { FiBarChart2, FiClock, FiStar, FiTrendingUp } from "react-icons/fi";
 import { useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth/useAuth";
 import useAxiosSecure from "../../hooks/useAuth/useAxiosSecure/useAxiosSecure";
-import { FiTrendingUp, FiStar, FiBarChart2 } from "react-icons/fi";
-import { FiClock } from 'react-icons/fi';
 
 const MostReadArticles = () => {
   const axiosSecure = useAxiosSecure();
@@ -23,12 +21,10 @@ const MostReadArticles = () => {
   });
 
   // Fetch most read articles
-  const {
-    data: articles = [],
-    isLoading: aLoading,
-  } = useQuery({
+  const { data: articles = [], isLoading: aLoading } = useQuery({
     queryKey: ["most-read-articles"],
-    queryFn: () => axiosSecure.get("/articles/mostreads").then((res) => res.data),
+    queryFn: () =>
+      axiosSecure.get("/articles/mostreads").then((res) => res.data),
   });
 
   if (aLoading || userLoading) {
@@ -58,7 +54,8 @@ const MostReadArticles = () => {
           const isPremium = article.isPremium;
           const isPremiumUser = currentUser?.role === "premium user";
           const hasPremiumToken = !!currentUser?.premiumTaken;
-          const canView = !isPremium || (isPremium && isPremiumUser && hasPremiumToken);
+          const canView =
+            !isPremium || (isPremium && isPremiumUser && hasPremiumToken);
 
           return (
             <div
@@ -70,24 +67,22 @@ const MostReadArticles = () => {
               <div className="flex flex-col md:flex-row">
                 {/* Rank Badge - Smaller on mobile */}
                 <div className="flex items-center justify-center md:flex-col bg-gray-50 p-4 md:w-16">
-                  <span className="text-xs text-gray-500 md:mb-1 hidden md:block">Rank</span>
+                  <span className="text-xs text-gray-500 md:mb-1 hidden md:block">
+                    Rank
+                  </span>
                   <span className="text-2xl font-bold text-indigo-600 ml-2 md:ml-0">
                     #{index + 1}
                   </span>
                 </div>
 
                 {/* Article Image - Increased width */}
-                <div className="md:w-64 lg:w-80 flex-shrink-0 h-48 md:h-auto">
+                <div className="md:w-64 lg:w-80 lg:h-48 flex-shrink-0 h-48 md:h-auto">
                   <img
                     src={article.image}
                     alt={article.title}
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.target.src = "https://via.placeholder.com/400x300?text=No+Image";
-                    }}
                   />
                 </div>
-
                 {/* Article Content */}
                 <div className="flex-1 p-6">
                   <div className="flex justify-between items-start">
@@ -98,7 +93,9 @@ const MostReadArticles = () => {
                       <div className="flex items-center text-sm text-gray-500 mb-3">
                         <FiClock className="mr-1.5 h-4 w-4 flex-shrink-0" />
                         <span>
-                          {new Date(article.postedDate || article.created_at).toLocaleDateString()}
+                          {new Date(
+                            article.postedDate || article.created_at
+                          ).toLocaleDateString()}
                         </span>
                         <span className="mx-2">•</span>
                         <span>{article.publisher}</span>
@@ -113,7 +110,9 @@ const MostReadArticles = () => {
                   </div>
 
                   <p className="text-gray-600 mb-4 line-clamp-2">
-                    {canView ? article.description : "Subscribe to view this premium content"}
+                    {canView
+                      ? article.description
+                      : "Subscribe to view this premium content"}
                   </p>
 
                   <div className="flex items-center justify-between flex-wrap gap-4">
