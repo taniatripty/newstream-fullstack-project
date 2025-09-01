@@ -32,6 +32,7 @@ import TermsAndConditions from "../components/TermsAndConditions/TermsAndConditi
 import AdminNotifications from "../pages/Dashboard/AdminNotifications/AdminNotifications";
 import Statistics from "../pages/Dashboard/Statistics/Statistics";
 import OpinionForm from "../components/Opinion/OpinionForm";
+import EntertainmentSection from "../components/EntertainmentSection/EntertainmentSection";
 
 
 export const router = createBrowserRouter([
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
       element:<PrivateRoute>
         <Profile></Profile>
       </PrivateRoute>
+    },
+    {
+      path:'entertainment',
+      Component:EntertainmentSection
     },
     {
       path:'opinion',
