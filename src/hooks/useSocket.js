@@ -7,7 +7,7 @@ const useSocket = () => {
 
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io("http://localhost:5000"); // backend URL
+      socketRef.current = io("https://newspaper-fullstack-project-server.vercel.app"); // backend URL
     }
 
     return () => {

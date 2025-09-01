@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactStars from "react-stars"; // react-stars package
 
 const ShowReviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://newspaper-fullstack-project-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.error("Failed to fetch reviews:", err));
@@ -41,8 +41,6 @@ const ShowReviews = () => {
               size={20}
               edit={false}
               color1="orrange"
-             
-             
             />
           </div>
 
@@ -55,4 +53,3 @@ const ShowReviews = () => {
 };
 
 export default ShowReviews;
-

@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { FiBell } from "react-icons/fi";
@@ -10,7 +9,7 @@ import useUserRole from "../../hooks/useUserRole/UseUserRole";
 import Logo from "../Logo/Logo";
 
 // Connect to backend Socket.IO
-const socket = io("http://localhost:5000"); // Update to your backend URL
+const socket = io("https://newspaper-fullstack-project-server.vercel.app"); // Update to your backend URL
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -23,7 +22,9 @@ const Navbar = () => {
   useEffect(() => {
     if (user) {
       axios
-        .get("http://localhost:5000/admin/notifications")
+        .get(
+          "https://newspaper-fullstack-project-server.vercel.app/admin/notifications"
+        )
         .then((res) => setNotifications(res.data))
         .catch((err) => console.error("Fetch notifications error:", err));
     }
@@ -67,7 +68,10 @@ const Navbar = () => {
 
     try {
       await logOut();
-      await axios.post("http://localhost:5000/logout", { email: user.email });
+      await axios.post(
+        "https://newspaper-fullstack-project-server.vercel.app/logout",
+        { email: user.email }
+      );
 
       Swal.fire({
         position: "top-end",
@@ -133,7 +137,7 @@ const Navbar = () => {
               : "hover:text-indigo-500"
           }
         >
-         Entertainment
+          Entertainment
         </NavLink>
       </li>
       {user && (
@@ -317,7 +321,6 @@ const Navbar = () => {
 
           {user && (
             <>
-             
               <img
                 className="w-8 h-8 rounded-full border"
                 src={user.photoURL}

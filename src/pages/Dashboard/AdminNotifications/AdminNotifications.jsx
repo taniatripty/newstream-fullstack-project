@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import useAuth from "../../../hooks/useAuth/useAuth";
 
-const socket = io("http://localhost:5000"); // backend URL
+const socket = io("https://newspaper-fullstack-project-server.vercel.app"); // backend URL
 
 const AdminNotifications = () => {
   const { user, role } = useAuth();
@@ -11,7 +11,9 @@ const AdminNotifications = () => {
 
   useEffect(() => {
     // Fetch all past notifications
-    fetch("http://localhost:5000/admin/notifications")
+    fetch(
+      "https://newspaper-fullstack-project-server.vercel.app/admin/notifications"
+    )
       .then((res) => res.json())
       .then((data) => {
         setNotifications(data);
