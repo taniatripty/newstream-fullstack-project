@@ -1,5 +1,5 @@
 import React from 'react';
-import TrendingTicker from '../TrendingTicker/TrendingTicker';
+
 import TrendingSlider from '../TrendingSlider/TrendingSlider';
 import UserStatistics from '../UserStatistics/UserStatistics';
 import PlansSection from '../PlansSection/PlansSection';
@@ -9,7 +9,7 @@ import FactsAndStats from '../FactsAndStats/FactsAndStats';
 import LatestNews from '../LatestNews/LatestNews';
 import MostReadArticles from '../MostReadArticles/MostReadArticles';
 import NewsletterSignup from '../NewsletterSignup/NewsletterSignup';
-import ReaderTestimonials from '../ReaderTestimonials/ReaderTestimonials';
+import ShowReviews from '../Reviews/ShowReviews';
 
 
 const Home = () => {
@@ -22,8 +22,8 @@ const Home = () => {
             <UserStatistics></UserStatistics>
             <AllPublisher></AllPublisher>
             <PlansSection></PlansSection>
-         <TrendingTicker></TrendingTicker>
-         <ReaderTestimonials></ReaderTestimonials>
+         <ShowReviews></ShowReviews>
+        
          <NewsletterSignup></NewsletterSignup>
          <FactsAndStats></FactsAndStats>
         </div>

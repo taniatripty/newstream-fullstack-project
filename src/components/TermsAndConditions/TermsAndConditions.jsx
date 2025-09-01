@@ -1,5 +1,5 @@
 import React from "react";
-import { ShieldCheck, FileText, Lock, Star, RefreshCcw, Mail } from "lucide-react";
+import { ShieldCheck, FileText, Lock, Star, RefreshCcw, Mail,  } from "lucide-react";
 
 const TermsAndConditions = () => {
   const sections = [

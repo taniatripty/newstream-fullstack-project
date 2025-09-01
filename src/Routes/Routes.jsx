@@ -30,6 +30,8 @@ import Profile from "../pages/Profile/Profile";
 import SubscriptionPlanPage from "../components/SubscriptionPlanPage/SubscriptionPlanPage";
 import TermsAndConditions from "../components/TermsAndConditions/TermsAndConditions";
 import AdminNotifications from "../pages/Dashboard/AdminNotifications/AdminNotifications";
+import Statistics from "../pages/Dashboard/Statistics/Statistics";
+import OpinionForm from "../components/Opinion/OpinionForm";
 
 
 export const router = createBrowserRouter([
@@ -88,6 +90,10 @@ export const router = createBrowserRouter([
       </PrivateRoute>
     },
     {
+      path:'opinion',
+      Component:OpinionForm
+    },
+    {
       path:'/subscription',
       element:<PrivateRoute>
         <SubscriptionPage></SubscriptionPage>
@@ -139,6 +145,12 @@ export const router = createBrowserRouter([
       path:'notification',
       element:<AdminRoute>
         <AdminNotifications></AdminNotifications>
+      </AdminRoute>
+    },
+    {
+      path:'statistics',
+      element:<AdminRoute>
+        <Statistics></Statistics>
       </AdminRoute>
     },
    {

@@ -40,10 +40,11 @@ const MostReadArticles = () => {
       <div className="text-center mb-12">
         <div className="inline-flex items-center justify-center bg-indigo-100 text-indigo-800 rounded-full p-3 mb-4">
           <FiTrendingUp className="w-6 h-6" />
-        </div>
-        <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl font-serif">
+             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl font-serif">
           Most Read Articles
         </h2>
+        </div>
+     
         <p className="mt-3 max-w-2xl mx-auto text-lg text-gray-500">
           Discover what others are reading the most
         </p>

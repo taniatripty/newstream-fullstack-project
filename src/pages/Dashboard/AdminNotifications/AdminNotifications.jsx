@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import useAuth from "../../../hooks/useAuth/useAuth";
 
-
 const socket = io("http://localhost:5000"); // backend URL
 
 const AdminNotifications = () => {
@@ -11,8 +10,6 @@ const AdminNotifications = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    
-
     // Fetch all past notifications
     fetch("http://localhost:5000/admin/notifications")
       .then((res) => res.json())
@@ -36,8 +33,6 @@ const AdminNotifications = () => {
       socket.off("user_activity");
     };
   }, [user, role]);
-
-  
 
   return (
     <div className="p-4">

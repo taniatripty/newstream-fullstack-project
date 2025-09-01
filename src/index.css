@@ -38,3 +38,31 @@ h1, h2, h3 {
   font-family: 'Lora', serif;
   color: var(--heading-text);
 }
+
+.borderAnim {
+  background: linear-gradient(
+    270deg,
+    #4f46e5,
+    #9333ea,
+    #ec4899,
+    #f59e0b,
+    #10b981,
+    #3b82f6,
+    #4f46e5
+  );
+  background-size: 400% 400%;
+  animation: moveBorder 8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

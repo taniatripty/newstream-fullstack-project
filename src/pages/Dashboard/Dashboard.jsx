@@ -2,7 +2,7 @@
 import React from "react";
 import { Link, NavLink, Outlet } from "react-router";
 import useUserRole from "../../hooks/useUserRole/UseUserRole";
-import { FaHome, FaUsers, FaFileAlt, FaUserCircle, FaUserShield, FaUserTie, FaUserTimes } from "react-icons/fa";
+import { FaHome, FaUsers, FaFileAlt, FaUserCircle, FaUserShield, FaUserTie, FaUserTimes, FaChartBar, FaChartLine } from "react-icons/fa";
 import Logo from "../../components/Logo/Logo";
 import { IoNotificationsCircle } from "react-icons/io5";
 
@@ -69,7 +69,7 @@ const Dashboard = () => {
               className="flex items-center text-gray-700 hover:text-lime-500"
             >
               <IoNotificationsCircle size={16} className="inline-block mr-2" />
-              notification
+             Real time Log
             </NavLink>
           </li>
           <li>
@@ -87,7 +87,7 @@ const Dashboard = () => {
               className="flex items-center text-gray-700 hover:text-lime-500"
             >
               <FaUsers className="inline-block mr-2" />
-              All Users
+              Manage Users
             </NavLink>
           </li>
           <li>
@@ -107,6 +107,15 @@ const Dashboard = () => {
             >
               <FaFileAlt className="inline-block mr-2" />
               All Articles
+            </NavLink>
+          </li>
+           <li>
+            <NavLink
+              to="/dashboard/statistics"
+              className="flex items-center text-gray-700 hover:text-lime-500"
+            >
+              <FaChartLine className="inline-block mr-2" />
+              Statistics
             </NavLink>
           </li>
          

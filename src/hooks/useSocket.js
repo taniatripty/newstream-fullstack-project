@@ -1,6 +1,6 @@
 
-import { io } from "socket.io-client";
 import { useEffect, useRef } from "react";
+import { io } from "socket.io-client";
 
 const useSocket = () => {
   const socketRef = useRef(null);

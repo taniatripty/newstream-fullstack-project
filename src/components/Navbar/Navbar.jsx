@@ -1,5 +1,3 @@
-
-
 // import { Link, NavLink } from "react-router";
 // import Swal from "sweetalert2";
 // import { useEffect, useState } from "react";
@@ -305,15 +303,15 @@
 // };
 
 // export default Navbar;
-import { Link, NavLink } from "react-router";
-import Swal from "sweetalert2";
+import axios from "axios";
 import { useEffect, useState } from "react";
-import { io } from "socket.io-client";
 import { FiBell } from "react-icons/fi";
+import { Link, NavLink } from "react-router";
+import { io } from "socket.io-client";
+import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth/useAuth";
 import useUserRole from "../../hooks/useUserRole/UseUserRole";
 import Logo from "../Logo/Logo";
-import axios from "axios";
 
 // Connect to backend Socket.IO
 const socket = io("http://localhost:5000"); // Update to your backend URL
@@ -398,7 +396,9 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+            isActive
+              ? "text-indigo-600 font-semibold underline"
+              : "hover:text-indigo-500"
           }
         >
           Home
@@ -408,7 +408,9 @@ const Navbar = () => {
         <NavLink
           to="/aboutus"
           className={({ isActive }) =>
-            isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+            isActive
+              ? "text-indigo-600 font-semibold underline"
+              : "hover:text-indigo-500"
           }
         >
           About Us
@@ -418,7 +420,9 @@ const Navbar = () => {
         <NavLink
           to="/allarticle"
           className={({ isActive }) =>
-            isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+            isActive
+              ? "text-indigo-600 font-semibold underline"
+              : "hover:text-indigo-500"
           }
         >
           All Articles
@@ -428,7 +432,9 @@ const Navbar = () => {
         <NavLink
           to="/subscriptionplan"
           className={({ isActive }) =>
-            isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+            isActive
+              ? "text-indigo-600 font-semibold underline"
+              : "hover:text-indigo-500"
           }
         >
           Subscription Plan
@@ -438,19 +444,36 @@ const Navbar = () => {
         <>
           <li>
             <NavLink
+              to="/opinion"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-indigo-600 font-semibold underline"
+                  : "hover:text-indigo-500"
+              }
+            >
+              Opninion
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/addarticle"
               className={({ isActive }) =>
-                isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+                isActive
+                  ? "text-indigo-600 font-semibold underline"
+                  : "hover:text-indigo-500"
               }
             >
               Add Articles
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="/myarticle"
               className={({ isActive }) =>
-                isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+                isActive
+                  ? "text-indigo-600 font-semibold underline"
+                  : "hover:text-indigo-500"
               }
             >
               My Articles
@@ -460,7 +483,9 @@ const Navbar = () => {
             <NavLink
               to="/subscription"
               className={({ isActive }) =>
-                isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+                isActive
+                  ? "text-indigo-600 font-semibold underline"
+                  : "hover:text-indigo-500"
               }
             >
               Subscription
@@ -470,7 +495,9 @@ const Navbar = () => {
             <NavLink
               to="/myprofile"
               className={({ isActive }) =>
-                isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+                isActive
+                  ? "text-indigo-600 font-semibold underline"
+                  : "hover:text-indigo-500"
               }
             >
               My Profile
@@ -483,7 +510,9 @@ const Navbar = () => {
           <NavLink
             to="/premium"
             className={({ isActive }) =>
-              isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+              isActive
+                ? "text-indigo-600 font-semibold underline"
+                : "hover:text-indigo-500"
             }
           >
             Premium Articles
@@ -495,7 +524,9 @@ const Navbar = () => {
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              isActive ? "text-indigo-600 font-semibold underline" : "hover:text-indigo-500"
+              isActive
+                ? "text-indigo-600 font-semibold underline"
+                : "hover:text-indigo-500"
             }
           >
             Dashboard
@@ -519,7 +550,12 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h12M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h12M4 18h16"
+                />
               </svg>
             </div>
             <ul
@@ -542,11 +578,15 @@ const Navbar = () => {
           {user && (
             <div className="relative cursor-pointer">
               <div onClick={() => setShowDropdown((prev) => !prev)}>
-                <FiBell size={22} className="text-white hover:text-indigo-400" />
+                <FiBell
+                  size={22}
+                  className="text-white hover:text-indigo-400"
+                />
                 <span className="absolute -top-2 -right-2 bg-red-500 text-xs font-bold text-white px-1.5 py-0.5 rounded-full">
                   {role === "admin"
                     ? notifications.length
-                    : notifications.filter((n) => n.email === user.email).length}
+                    : notifications.filter((n) => n.email === user.email)
+                        .length}
                 </span>
               </div>
 
@@ -556,16 +596,22 @@ const Navbar = () => {
                     ? notifications
                     : notifications.filter((n) => n.email === user.email)
                   ).map((n, index) => (
-                    <div key={index} className="px-4 py-2 border-b hover:bg-gray-100">
+                    <div
+                      key={index}
+                      className="px-4 py-2 border-b hover:bg-gray-100"
+                    >
                       <p className="font-semibold">{n.name}</p>
                       <p className="text-xs text-gray-500">{n.email}</p>
-                      <p className="text-xs text-gray-400">{new Date(n.time).toLocaleTimeString()}</p>
+                      <p className="text-xs text-gray-400">
+                        {new Date(n.time).toLocaleTimeString()}
+                      </p>
                     </div>
                   ))}
 
                   {((role === "admin" && notifications.length === 0) ||
                     (role !== "admin" &&
-                      notifications.filter((n) => n.email === user.email).length === 0)) && (
+                      notifications.filter((n) => n.email === user.email)
+                        .length === 0)) && (
                     <div className="px-4 py-2">No notifications</div>
                   )}
                 </div>
@@ -575,13 +621,20 @@ const Navbar = () => {
 
           {user && (
             <>
-              <span className="text-sm font-medium">{user.displayName}</span>
-              <img className="w-8 h-8 rounded-full border" src={user.photoURL} alt="User" />
+             
+              <img
+                className="w-8 h-8 rounded-full border"
+                src={user.photoURL}
+                alt="User"
+              />
             </>
           )}
 
           {user ? (
-            <button onClick={handleLogout} className="btn btn-sm btn-outline btn-primary">
+            <button
+              onClick={handleLogout}
+              className="btn btn-sm btn-outline btn-primary"
+            >
               Logout
             </button>
           ) : (
@@ -601,4 +654,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
